@@ -92,12 +92,12 @@ body {
   line-height: 1.5;
 }
 
-p:not([class]){
+p:not([class]) {
   opacity: 0.7;
-  max-width:32ch;
+  max-width: 32ch;
 }
 
-p[data-width="wide"]{
+p[data-width="wide"] {
   max-width: 42ch;
 }
 
@@ -191,7 +191,7 @@ body {
   font-size: var(--fs-nav);
 }
 
-.nav-list{
+.nav-list {
   display: flex;
   gap: clamp(var(--size-500), 5vw, var(--size-700));
   font-weight: var(--fw-semi-bold);
@@ -222,11 +222,11 @@ body {
     box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
   }
 
-  .primary-header[data-overlay]::before{ 
-    content: '';
+  .primary-header[data-overlay]::before {
+    content: "";
     position: fixed;
     inset: 0;
-    background-image: linear-gradient(rgb(0 0 0 /0), rgb(0 0 0  / 0.8));
+    background-image: linear-gradient(rgb(0 0 0 /0), rgb(0 0 0 / 0.8));
   }
 
   .mobile-nav-toggle {
@@ -247,7 +247,6 @@ body {
     font-weight: var(--fw-bold);
   }
 
-
   .primary-navigation[data-visible] {
     display: block;
   }
@@ -255,6 +254,33 @@ body {
   .mobile-nav-toggle .icon-close {
     display: none;
   }
+}
+
+/* CTA */
+
+.cta {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+}
+
+@media (min-width: 50em) {
+  .cta{
+    text-align: left;
+  }
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: 
+    url("/images/bg-tablet-pattern.svg"),
+    url("./images/bg-tablet-pattern.svg");
+  background-position: -15rem -5rem, 80rem -30rem;
+  background-repeat: no-repeat;
+  opacity: 0.1;
 }
 
 /*Utility classes*/
@@ -279,13 +305,6 @@ body {
   margin-inline: auto;
 }
 
-/*where is for specificity*/
-:where(.flow :not(:first-child)){
-  margin-top: var(--flow-spacer, 3em);
-}
-
-
-
 .even-columns {
   display: grid;
   gap: 1rem;
@@ -296,6 +315,26 @@ body {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+
+.justify-self-end {
+  justify-self: end;
+}
+
+@media (min-width: 50em){
+  .justify-self-end-md {
+    justify-self: center;
+  }
+}
+
+/*where is for specificity*/
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
 }
 
 .text-primary-400 {
@@ -371,12 +410,12 @@ body {
   padding-block: var(--size-700);
 }
 
-.display-sm-none{
+.display-sm-none {
   display: none;
 }
 
-@media (min-width: 50em){
-  .display-md-inline-flex{
+@media (min-width: 50em) {
+  .display-md-inline-flex {
     display: inline-flex;
   }
 }
